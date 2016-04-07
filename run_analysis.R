@@ -128,7 +128,7 @@ library(reshape2)
 melted <- melt(finaldata, id.vars=c("activity", "subject"))
 
 grouped <- group_by(melted, activity, subject)
-newDS <- summarize(grouped, mean=mean(value))
+newDS<-summarize(group_by(grouped, activity, subject, variable),mean=mean(variable))
 
 #final cleanup:
 rm(list =c( "grouped"))
